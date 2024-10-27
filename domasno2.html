@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>OWEB Domasno 2</title>
+        <link rel="stylesheet" href="dom2.css">
+        </head>
+
+    <body>
+        <form method="post" action="#">
+        <h1>Order a pizza!</h1>
+        <img src="pizza.jpg" alt="PIZZA">
+
+        <p class="prv"><strong>Please select the pizza size:</strong><br>
+            <br>
+            <label>
+                <input name = "pizzaSize" type = "radio">
+                Big</label><br>
+            <label>
+                <input name = "pizzaSize" type = "radio">
+                Medium</label><br>
+            <label>
+                <input name = "pizzaSize" type = "radio">
+                Small</label>
+        </p>
+
+        <p class="vtor"><strong>Please select the crust type:</strong><br>
+            <br>
+            <label> <select name = "crust type">
+                <option selected>Neapolitan Crust</option>
+                <option>New York Style Crust</option>
+                <option>Sicilian Crust</option>
+                <option>Thin Crust Pizzas</option>
+                <option>Thick Crust</option>
+                <option>Stuffed Crust</option>
+                <option>Gluten-Free Crust</option>
+            </select>
+            </label></p>
+
+            <p class="tret"><strong>Please select the fillers you like:</strong><br>
+                <br>
+                <label>
+                    <input name = "fillers" type = "checkbox">
+                    Mozzarella</label><br>
+                <label>
+                    <input name = "fillers" type = "checkbox">
+                    Pepperoni</label><br>    
+                <label>
+                    <input name = "fillers" type = "checkbox">
+                    Sausage</label><br>
+                <label>
+                    <input name = "fillers" type = "checkbox">
+                    Bacon</label><br>
+                <label>
+                    <input name = "fillers" type = "checkbox">
+                    Ham</label><br>
+                <label>
+                    <input name = "fillers" type = "checkbox">
+                    Onion</label><br>
+                <label>
+                    <input name = "fillers" type = "checkbox">
+                    Mushrooms</label><br>
+                <label>
+                    <input name = "fillers" type = "checkbox">
+                    Olives</label><br>
+            </p>
+
+            <p><label><strong>Name:</strong>
+                <input name = "name" type = "text" size = "30">
+            </label><br>
+            <br>
+            <label><strong>Phone number:</strong>
+                <input type = "tel" placeholder="+389********" 
+                pattern="\+389\d{8}" required>
+            </label>
+            </p>
+
+            <p>
+                <label>
+                    <textarea name = "Message" rows="8" cols="40" placeholder="If you have any other requests, feel free to write to us here."></textarea>
+                </label>
+            </p>
+
+            <p>
+                <input type = "submit" value="Send">
+                <input type = "reset" value="Reset">
+            </p>
+    </form>
+    </body>
+</html>

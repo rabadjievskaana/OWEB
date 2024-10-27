@@ -1,0 +1,49 @@
+body {
+    background-color: #670e0e;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 30px;
+}
+
+form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #dbc8cf;
+    border: 10px solid #461818;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.prv{
+    font-style: italic; 
+}
+
+.vtor{
+    font-style: italic; 
+}
+
+.tret{
+    font-style: italic; 
+}
+
+h1 {
+    color: #333;
+    text-decoration: underline;
+}
+
+input[type="submit"], input[type="reset"] {
+    display: inline-block;
+    width: 20%;
+    margin: 5px;
+    padding: 10px;
+    background-color: #b89191;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: #88151f;
+}
