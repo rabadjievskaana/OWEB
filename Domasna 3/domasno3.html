@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="domasno3.css">
+    </head>
+    <body>
+        <div class="package">
+            <h1>Guess the word!</h1>
+            <div id="wordDisplay"></div>
+            <p id="used-letters">Letters that have been used:</p>
+            <div id="content"> </div>
+            <div class="letter-input">
+                <input type="text" id="letterInput" maxlength="1">
+                <button class="btn1" onclick="checkLetter()">Check</button>
+            </div>
+            <div id="attempts">Tries: 5</div>
+            <div id="result"></div>
+            <button class="btn2" onclick="startNewGame()">New game</button>
+        </div>
+        <script src="domasno3.js"></script>
+    </body>
+</html>
