@@ -1,0 +1,110 @@
+header {
+    font-family: 'Open Sans';
+    background-color: #000000;
+    color: rgb(254, 253, 253);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header h1 {
+    border: 3px solid rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 36px;
+    padding: 10px;
+    margin: 0;
+    height: 80%
+}
+
+.navbar {
+    text-size-adjust: 50;
+    list-style-type: none;
+    margin-right: 5px;
+    padding: 4;
+    display: flex;
+}
+
+.navbar li {
+    margin-left: 14px;
+}
+
+.navbar li a {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.navbar li a:hover {
+    background-color: #555;
+}
+/*.container{
+    display: block; 
+    flex-direction: column; 
+    flex: 1; 
+}*/
+ 
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(244, 244, 236);
+}
+
+.container {
+    border: 2px solid #692506;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 4%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-weight: bold;
+    display: block; 
+    flex-direction: column; 
+    flex: 1;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-check {
+    margin-bottom: 10px;
+}
+.form-control{
+    width: 100%;
+    font-size: 15px;
+    height: 30px;
+}
+
+.btn {
+    margin-left: 39%;
+    display: block;
+    width: 20%;
+    padding: 10px;
+    background-color: #692506;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    border-color: none;
+    margin-bottom: 11%;
+    margin: 20px auto 11%;
+}
+
+.btn:hover {
+    background-color: #491205;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color:rgb(0, 0, 0)
+}

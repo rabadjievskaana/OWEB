@@ -1,0 +1,44 @@
+body{
+    background-color: rgb(222, 237, 237);
+}
+
+.test-drive-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #8aa4a0;
+    border-radius: 8px;
+}
+
+.test-drive-form h2 {
+    margin-bottom: 20px;
+}
+
+.test-drive-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.test-drive-form input,
+.test-drive-form select,
+.test-drive-form textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.test-drive-form button {
+    padding: 10px;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.test-drive-form button:hover {
+    background-color: #a2abb1;
+}

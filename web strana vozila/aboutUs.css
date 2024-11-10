@@ -1,0 +1,237 @@
+header {
+    font-family: 'Open Sans';
+    background-color: #000000;
+    color: rgb(254, 253, 253);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+header h1 {
+    border: 3px solid rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 36px;
+    padding: 10px;
+    margin: 0;
+    height: 80%
+}
+
+.navbar {
+    text-size-adjust: 50;
+    list-style-type: none;
+    margin-right: 5px;
+    padding: 4;
+    display: flex;
+}
+
+.navbar li {
+    margin-left: 14px;
+}
+
+.navbar li a {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.navbar li a:hover {
+    background-color: #555;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+body {
+    background-color: rgb(251, 251, 239);
+    position: center;
+    overflow-x: hidden;
+}
+
+.who {
+    top: 3px;
+    left: 7px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.mission {
+    top: 2px;
+    left: 7px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.offer {
+    top: 10px;
+    left: 7px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.clients {
+    top: 3px;
+    left: 7px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.w1,
+.w3 {
+    width: 62%;
+    position: center;
+    float: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    margin-left: 10px;
+    float: left;
+}
+
+.pS {
+    width: 37%;
+    float: right;
+    right: 20px;
+}
+
+
+.text2 {
+    width: 97%;
+    float: left;
+    position: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    margin-left: 12px;
+    margin-bottom: 40px;
+}
+
+.vS {
+    width: 45%;
+    float: right;
+    display: flex;
+    flex: 0 0 auto;
+    margin-right: 60px;
+    margin-bottom: 60px;
+}
+
+
+.alert-prvo,
+.alert-vtoro,
+.alert-treto,
+.alert-cetvrto,
+.alert-petto {
+    width: 89%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13.5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: beige;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    text-decoration: bold;
+    margin-left: 20px;
+}
+
+.text4 {
+    position: center;
+    width: 50%;
+    margin-left: 12px;
+}
+
+.text3 {
+    position: center;
+    margin-left: 40px;
+    width: 170%;
+    float: left;
+    position: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    margin-bottom: 11%;
+}
+
+
+.cS {
+    width: 15%;
+    float: right;
+    display: flex;
+    flex: 0 4 0;
+    height: auto;
+}
+
+.container {
+    height: 82px;
+    width: 197%;
+    background-color: black;
+    /* Заднинска боја на footer */
+    color: white;
+    /* Боја на текстот */
+    box-sizing: border-box;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    flex: auto;
+    padding: 7px;
+}
+
+.contact {
+    margin-top: 0;
+    font-family: 'Open Sans';
+    font-size: 17px;
+    text-align: left;
+}
+
+.button-form {
+    position: center;
+
+    margin-bottom: 7px;
+    cursor: pointer;
+    align-self: center;
+    padding: 0;
+}
+
+/*.test {
+    margin-top: 0;
+    display: flex;
+    text-align: right;
+    font-family: 'Lobster';
+    color: rgb(255, 255, 255);
+    flex-direction: row;
+}
+
+.button-link{
+    margin-bottom: 2%;
+    margin-top: 0;
+    position: right;
+    font-family: 'Open Sans';
+    display: block;
+    padding: 11px;
+    background-color: #ffffff;
+    color: rgb(255, 255, 255);
+}*/
+.test {
+    display: flex;
+    margin-top: 0;
+    text-align: right;
+    margin-right: 15px;
+    font-family: 'Lobster';
+    margin-left: 300px;
+    color: rgb(255, 255, 255);
+    flex-direction: row;
+}
+
+.button-link {
+    position: center;
+    font-family: 'Open Sans';
+    display: block;
+    padding: 13px;
+    background-color: #ffffff;
+    color: rgb(255, 255, 255);
+}
+
+
+.button-link:hover {
+    background-color: #000000;
+}

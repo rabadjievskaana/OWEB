@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8">
+    <title>Test Drive Form</title>
+    <link rel="stylesheet" href="formaZaTestVozenje.css">
+        
+</head>
+<body>
+
+    <div class="test-drive-form">
+        <h2>Schedule a Test Drive</h2>
+        <form>
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" name="full-name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="preferred-date">Preferred Date</label>
+            <input type="date" id="preferred-date" name="preferred-date" required>
+
+            <label for="preferred-time">Preferred Time</label>
+            <input type="time" id="preferred-time" name="preferred-time" required>
+
+            <label for="car-model">Preferred Car Model</label>
+            <select id="car-model" name="car-model" required>
+                <option value="" disabled selected>Select a car model</option>
+                <option value="Model A">Volkswagen</option>
+                <option value="Model B">Audi</option>
+                <option value="Model C">Skoda</option>
+                <option value="Model D">Mercedes-Benz</option>
+            </select>
+
+            <label for="additional-info">Additional Information</label>
+            <textarea id="additional-info" name="additional-info" rows="4"></textarea>
+
+            <button type="submit" formaction="koli.html">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>
