@@ -1,4 +1,4 @@
-.card {
+/*.card {
     background-color: whitesmoke;
     border-radius: 12px;
     padding: 20px;
@@ -49,4 +49,12 @@
 
 .button:hover {
     background-color: darkblue;
+}*/
+
+.begin{
+    background-color: lightcoral;
+}
+
+.adv{
+    background-color: lightblue;
 }

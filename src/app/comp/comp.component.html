@@ -14,22 +14,90 @@
     &nbsp;
 </div>
 </div>
--->
 
-<div class = "card">
-    <div class = "ime">
-        {{indeks + "." + vozac?.name}} 
-    </div>
+ng e spo * radi toa sto e importnat vo app komponentata ova samo nasleduva posle ng doagjaat for if ...-->
 
-    <img class = "slika" width="300" [src]="vozac?.iconUrl">
+
+<!--<div *ngIf="vozac?.name != undefined" [ngClass] = "klasi2()">
+    
+    <ng-template role="alert", aria-live="polite" #noImg>
+        Ska slika
+    </ng-template>
+
+    <div role="heading" aria-level="2" [style.text-decoration]="stilovi()">
+
+        {{indeks + "." + vozac?.name}}
+
+    </div>-->
+    <!--ngIf true ja pret komponentata a false ja trga ne ja pravi-->
+
+  <!-- <img class = "slika" width="300" *ngIf="vozac?.iconUrl; else noImg" [src]="vozac?.iconUrl">
     
     <div class = "team">
         {{vozac?.team}}
     </div>
+<div [ngSwitch] = "vozac?.category">
 
+    <div *ngSwitchCase = "EXPERT">EXPERT</div>
+    <div *ngSwitchCase = "LUNATIC">LUNATIC</div>
+    <div *ngSwitchCase = "ASD">ASD</div>
+    <div *ngSwitchDefault>NO comment</div>
+</div>
     
         <button class = "button" (click)="onDrvView()">Klikni me</button>
     
+    <div>
+        &nbsp;
+    </div>
+</div>-->
+
+
+<!--TUKA ZA POSLEDNOTO DOMASNO-->
+
+<div *ngIf="vozac?.name != undefined" [ngClass]="klasi2()">
+    
+    <ng-template role="alert" aria-live="polite" #noImg>
+        Ska slika
+    </ng-template>
+
+    <div role="heading" aria-level="2" [style.text-decoration]="stilovi()">
+        {{indeks + "." + vozac?.name}}
+    </div>
+
+    <img 
+        class="slika"  width="300"  *ngIf="vozac?.iconUrl; else noImg" [src]="vozac?.iconUrl" 
+        alt="Slika na vozacot" 
+        role="img" 
+        aria-describedby="opis" 
+        aria-hidden="false">
+    
+    <div id="opis" class="team">
+        Timot na vozacot e: {{vozac?.team}}
+    </div>
+
+    <div [ngSwitch]="vozac?.category">
+        <div *ngSwitchCase="'EXPERT'">EKSPERT</div>
+        <div *ngSwitchCase="'LUNATIC'">LUDAK</div>
+        <div *ngSwitchCase="'ASD'">ASD</div>
+        <div *ngSwitchDefault>Nema komentar</div>
+    </div>
+    
+    <button 
+        class="button"  (click)="onDrvView()" 
+        aria-expanded="false" 
+        aria-label="Klik za prikaz na vozacot">
+        Klikni me
+    </button>
+
+    <!--vaka bi bilo dinamicki, plus dodadeno vo ts
+    <button 
+    class="button" 
+    (click)="toggleExpanded()" 
+    [attr.aria-expanded]="isExpanded" 
+    aria-label="Klik za prikaz na vozacot">
+    Klikni me
+    </button>
+    -->
     <div>
         &nbsp;
     </div>
