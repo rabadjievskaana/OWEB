@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="widht=device-width, initial-scale=1">
+    <title>Jewelry Store</title>
+    <link rel="stylesheet" type="text/css" href="proektna2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).on('click', '.log', function () {
+            $('.form1').addClass('login-active')
+        });
+        $(document).on('click', '.cancel', function () {
+            $('.form1').removeClass('login-active')
+        });
+        $(document).on('click', '.order', function () {
+            $('.shop').addClass('shop-active')
+        });
+        $(document).on('click', '.cancel', function () {
+            $('.shop').removeClass('shop-active')
+        });
+        $(document).on('click', '.service-section .service-item-inner1', function () {
+            $('.newPic1').addClass('pic1-active')
+        });
+        $(document).on('click', '.service-section .service-item-inner2', function () {
+            $('.newPic2').addClass('pic1-active')
+        });
+        $(document).on('click', '.service-section .service-item-inner3', function () {
+            $('.newPic3').addClass('pic1-active')
+        });
+        $(document).on('click', '.order1', function () {
+            $('.shop').addClass('shop-active')
+        });
+        $(document).ready(function () {
+
+            $('.btn-01').hover(function () {
+                $(this).css({
+                    'background-color': 'transparent',
+                    'border-color': '#670010',
+                    'color': '#670010'
+                });
+            }, function () {
+                $(this).css({
+                    'background-color': '',
+                    'border-color': '',
+                    'color': ''
+                });
+            });
+
+            $('.btn-01').focus(function () {
+                $(this).css('outline', 'none');
+            });
+
+            $('.header .fixed .nav ul li a, .header .nav ul li a').hover(function () {
+                $(this).css('color', '#670010');
+            }, function () {
+                $(this).css('color', '');
+            });
+
+            $('.service-section .service-item-inner1').hover(function () {
+                $(this).find('img').css({
+                    'filter': 'grayscale(0)',
+                    'transform': 'scale(1.1)'
+                });
+            },
+                function () {
+                    $(this).find('img').css({
+                        'filter': 'grayscale(100%)',
+                        'transform': 'scale(1)'
+                    });
+                }
+            );
+            $('.service-section .service-item-inner2').hover(function () {
+                $(this).find('img').css({
+                    'filter': 'grayscale(0)',
+                    'transform': 'scale(1.1)'
+                });
+            },
+                function () {
+                    $(this).find('img').css({
+                        'filter': 'grayscale(100%)',
+                        'transform': 'scale(1)'
+                    });
+                }
+            );
+            $('.service-section .service-item-inner3').hover(function () {
+                $(this).find('img').css({
+                    'filter': 'grayscale(0)',
+                    'transform': 'scale(1.1)'
+                });
+            },
+                function () {
+                    $(this).find('img').css({
+                        'filter': 'grayscale(100%)',
+                        'transform': 'scale(1)'
+                    });
+                }
+            );
+            $('.service-section .service-item-inner1').hover(function () {
+                $(this).find('.overlay').css('background-color', 'transparent');
+            }, function () {
+                $(this).find('.overlay').css('background-color', '');
+            }
+            );
+            $('.service-section .service-item-inner2').hover(function () {
+                $(this).find('.overlay').css('background-color', 'transparent');
+            }, function () {
+                $(this).find('.overlay').css('background-color', '');
+            }
+            );
+            $('.service-section .service-item-inner3').hover(function () {
+                $(this).find('.overlay').css('background-color', 'transparent');
+            }, function () {
+                $(this).find('.overlay').css('background-color', '');
+            }
+            );
+            $('.service-section .service-item-inner1 .overlay').hover(function () {
+                $(this).find('h4').css({
+                    'transform': 'translateX(30px)',
+                    'opacity': '0'
+                });
+            }, function () {
+                $(this).find('h4').css({
+                    'transform': '',
+                    'opacity': ''
+                });
+            }
+            );
+            $('.service-section .service-item-inner2 .overlay').hover(function () {
+                $(this).find('h4').css({
+                    'transform': 'translateX(30px)',
+                    'opacity': '0'
+                });
+            }, function () {
+                $(this).find('h4').css({
+                    'transform': '',
+                    'opacity': ''
+                });
+            }
+            );
+            $('.service-section .service-item-inner3 .overlay').hover(function () {
+                $(this).find('h4').css({
+                    'transform': 'translateX(30px)',
+                    'opacity': '0'
+                });
+            }, function () {
+                $(this).find('h4').css({
+                    'transform': '',
+                    'opacity': ''
+                });
+            }
+            );
+            $('.social-links a').hover(function () {
+                $(this).find('img').css('opacity', '0.5');
+            }, function () {
+                $(this).find('img').css('opacity', '1');
+            });
+            $(".image-container").hover(function () {
+                $(this).find(".image-caption").fadeIn();
+            });
+        });
+
+        // inicijalizirame cart
+        var cart = [];
+
+        function updateCart() {
+
+            $('#cartItemCount').text(cart.length);
+
+            var cartList = $('#cartList');
+            cartList.empty();
+
+            $.each(cart, function (index, item) {
+                cartList.append(
+                    '<li>' +
+                    '<img src="' + item.image + '" alt="' + item.name + '" style="width: 50px; height: 50px;">' + // Image
+                    ' ' + item.name + ' - $' + item.price + // Name and price
+                    '</li>'
+                );
+            });
+
+            // pokazi i sokrij cart
+            if (cart.length > 0) {
+                $('#cartItems').show();
+            } else {
+                $('#cartUP').hide();
+            }
+        }
+
+        $(document).ready(function () {
+            $('.cart').click(function () {
+ 
+                var itemName = $(this).data('item');
+                var itemPrice = $(this).data('price');
+                var itemImage = $(this).data('image');
+
+                // dodaj vo cart
+                cart.push({ name: itemName, price: itemPrice, image: itemImage });
+
+                updateCart();
+            });
+
+            $('#cartButton').click(function () {
+                $('#cartItems').toggle();
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <!--Preloader-->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!--Head Section-->
+    <header class="header">
+        <div class="container">
+            <div class="row justify-content-between align-items-centar">
+
+
+                <div class="nav-toggle">
+                    <span></span>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#form1" class="log">Log in</a></li>
+                        <li><a href="#shop" class="order">Shop</a></li>
+                        <li><a href="#cart" class="cartUP">Cart</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!--Home Section-->
+    <section class="home-section" id="home">
+
+        <div class="home-content">
+            <h2> BLOSSOM JEWELRY STORE</h2>
+            <a href="#categories" class="btn btn-01">Shop now!</a>
+        </div>
+
+    </section>
+
+    <!--About section-->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="sliki/Gold tone jewelry stacking idea.jpg" alt="about us">
+                </div>
+                <div class="about-text">
+                    <div class="section-title">
+                        <h1>About Us</h1>
+                    </div>
+                    <p>Don't wait for an opportunity to wear beautiful jewelry, every day is an opportunity. A girl
+                        never can't have enough jewelry. Jewelry has the power to be that little thing that can make you
+                        feel unique. Everyone deserves a new one, and we are right place to make the right choice! He
+                        started this business on the Internet in order to inspire other people through simple every day
+                        jewelry who wear the jewelry will have a beautiful day. She always thought that wearing jewelry
+                        completes the look, especially simple pieces that match any outfit, and makes you feel settled.
+                        The aim of the business is to produce quality products for all people who are fans of jewelry
+                        and enjoy wearing it.</p>
+                    <a href="#contact" class="btn btn-01">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Categories section-->
+    <section class="service-section" id="categories">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h1>Categories</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="service-item">
+                    <div class="service-item-inner1">
+                        <img src="sliki/Women's Jewelry _ Necklaces _ Sliver, Pearl & More.jpg" alt="category1"
+                            height="200px" width="300px">
+                        <div class="overlay">
+                            <h3>Necklace</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-item-inner2">
+                        <img src="sliki/PEARL HOOPS OHRRINGE.jpg" alt="category2" height="200px" width="300px">
+                        <div class="overlay">
+                            <h3>Earrings</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-item-inner3">
+                        <img src="sliki/Zola Ring, Dainty, Delicate, Butterfly Ring, Marquise Stones, Trendy Rings,  For Her, Gift for Girlfriend Wife Women, Dainty Ring.jpg"
+                            alt="category3" height="200px" width="300px">
+                        <div class="overlay">
+                            <h3>Rings</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart Button-->
+        <button id="cartButton">
+            Cart (<span id="cartItemCount">0</span>)
+        </button>
+
+
+        <!-- Cart items container -->
+        <div id="cartItems" style="display:none;">
+            <ul id="cartList"></ul>
+            <!--<button id="checkoutButton">Checkout</button>-->
+        </div>
+        <div class="newPic">
+            <div class="newPic1">
+                <div class="image-container">
+                    <img src="sliki/Ball Decor Layered Necklace.jpg" alt="new_category1" height="200px" width="300px">
+                    <p class="image-caption">Necklace1</p>
+                    <button class="cart" data-item="Necklace1" data-price="25.99"
+                        data-image="sliki/Ball Decor Layered Necklace.jpg">
+                        Add to cart
+                    </button>
+                </div>
+                <div class="image-container">
+                    <img src="sliki/SCORPIO ZODIAC NECKLACE (18K GOLD VERMEIL).jpg" alt="new_category1" height="200px"
+                        width="300px">
+                    <p class="image-caption">Necklace2</p>
+                    <button class="cart" data-item="Necklace2" data-price="29.99"
+                        data-image="sliki/SCORPIO ZODIAC NECKLACE (18K GOLD VERMEIL).jpg">
+                        Add to cart
+                    </button>
+                </div>
+                <div class="image-container">
+                    <img src="sliki/Double Herringbone Chain Necklace, Minimalist Jewelry,Stacking Necklace, Gold Snake Chain Necklace,everyday piece,Layering Necklace,minimal.jpg"
+                        alt="new_category1" height="200px" width="300px">
+                    <p class="image-caption">Necklace3</p>
+                    <button class="cart" data-item="Necklace3" data-price="32.99"
+                        data-image="sliki/Double Herringbone Chain Necklace, Minimalist Jewelry,Stacking Necklace, Gold Snake Chain Necklace,everyday piece,Layering Necklace,minimal.jpg">
+                        Add to cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="newPic2">
+                <div class="image-container">
+                    <img src="sliki/Opal Petal Gold Earrings.jpg" alt="new_category2" height="200px" width="300px">
+                    <p class="image-caption">Earrings1</p>
+                    <button class="cart" data-item="Earrings1" data-price="19.99"
+                        data-image="sliki/Opal Petal Gold Earrings.jpg">
+                        Add to cart
+                    </button>
+                </div>
+                <div class="image-container">
+                    <img src="sliki/Rhinestone Decor Geometric Hoop Earrings.jpg" alt="new_category2" height="200px"
+                        width="300px">
+                    <p class="image-caption">Earrings2</p>
+                    <button class="cart" data-item="Earrings2" data-price="22.99"
+                        data-image="sliki/Rhinestone Decor Geometric Hoop Earrings.jpg">
+                        Add to cart
+                    </button>
+                </div>
+                <div class="image-container">
+                    <img src="sliki/Wedding Gowns, Bridesmaids & More _ Anthropologie.jpg" alt="new_category2"
+                        height="200px" width="300px">
+                    <p class="image-caption">Earrings3</p>
+                    <button class="cart" data-item="Earrings3" data-price="24.99"
+                        data-image="sliki/Wedding Gowns, Bridesmaids & More _ Anthropologie.jpg">
+                        Add to cart
+                    </button>
+                </div>
+            </div>
+            <div class="newPic3">
+                <div class="image-container">
+                    <img src="sliki/Rhinestone Butterfly Decor Cuff Ring.jpg" alt="new_category3" height="200px"
+                        width="300px">
+                    <p class="image-caption">Rings1</p>
+                    <button class="cart" data-item="Rings1" data-price="15.99"
+                        data-image="sliki/Rhinestone Butterfly Decor Cuff Ring.jpg">
+                        Add to cart
+                    </button>
+                </div>
+                <div class="image-container">
+                    <img src="sliki/Shop All.jpg" alt="new_category3" height="200px" width="300px">
+                    <p class="image-caption">Rings2</p>
+                    <button class="cart" data-item="Rings2" data-price="18.99" data-image="sliki/Shop All.jpg">
+                        Add to cart
+                    </button>
+                </div>
+                <div class="image-container">
+                    <img src="sliki/Simple Jewelry To Own To Spice Up Your Wardrobe - Society19.jpg" alt="new_category3"
+                        height="200px" width="300px">
+                    <p class="image-caption">Rings3</p>
+                    <button class="cart" data-item="Rings3" data-price="20.99"
+                        data-image="sliki/Simple Jewelry To Own To Spice Up Your Wardrobe - Society19.jpg">
+                        Add to cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <a href="#shop" class="order1">
+            <button class="btn btn-01">Order now!</button>
+        </a>
+    </section>
+
+
+    <!--Contact section-->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-img">
+                    <div class="img-box">
+                        <div class="section-title">
+                            <h1>Contact us</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="contact-form">
+                <form class="form">
+                    <div class="row">
+                        <div class="left input-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Name" class="input-control" required>
+                        </div>
+                        <div class="right input-group">
+                            <label>Email or Phone</label>
+                            <input type="text" placeholder="Email or Phone" class="input-control" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group">
+                            <label>Message</label>
+                            <textarea class="input-control" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-btn">
+                        <a href="#home"> <button type="button" class="btn btn-01" id="button">Send
+                                message</button></a>
+                    </div>
+                    <div class="dialog">
+                        Thank you for contacting and letting us know your thougths about our brand.
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="contact-info">
+                <div class="row">
+                    <div class="info-item">
+                        <h5>Address</h5>
+                        <p>Partizanska,Skopje</p>
+                    </div>
+                    <div class="info-item">
+                        <h5>Phone</h5>
+                        <p>070/111-222</p>
+                    </div>
+                    <div class="info-item">
+                        <h5>E-mail</h5>
+                        <p>BlossomJewelry@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="social-links">
+                <a href="#" title="facebook"><img src="sliki/download.png" alt="facebook"></a>
+                <a href="#" title="instagram"><img src="sliki/social-instagram-icon-512x512-6mp2zfl3.png"
+                        alt="facebook"></a>
+
+            </div>
+        </div>
+    </section>
+
+    <!--CopyRight section-->
+    <p class="copyright">&copy; 2024 jewery store</p>
+
+    <!--Login form-->
+    <div class="form1">
+        <div class="login-form">
+            <img src="sliki/x.jpg" width="40px" height="40px" class="cancel">
+            <strong>Log In</strong>
+            <form>
+                <input type="email" placeholder="E-mail" name="email" required>
+                <input type="password" placeholder="Password" name="password" required>
+                <a href="#home"><button class="btn-01">Log In</button></a>
+            </form>
+        </div>
+    </div>
+
+    <!--Shop form-->
+    <div class="shop" id="shop">
+        <div class="shop-form">
+            <img src="sliki/x.jpg" width="40px" height="40px" class="cancel">
+            <strong>Make your order</strong>
+            <form>
+                <input name="name" placeholder="Name" type="text" required>
+                <input name="surname" placeholder="Surname" type="text" required>
+                <input name="email" placeholder="E-mail" type="email" required>
+                <input name="number" placeholder="Number" type="tel" required>
+                <input namee="country" placeholder="Country" type="text" required>
+                <input name="town" placeholder="Town" type="text" required>
+                <label>Select your product:
+                    <select name="product" id="product">
+                        <option>Necklace1</option>
+                        <option>Necklace2</option>
+                        <option>Necklace3</option>
+                        <option>Earrings1</option>
+                        <option>Earrings2</option>
+                        <option>Earrings3</option>
+                        <option>Rings1</option>
+                        <option>Rings2</option>
+                        <option>Rings3</option>
+                    </select></label>
+                <input name="amount" placeholder="Amount" type="number" required>
+                <a href="#home"><button class="btn-01">Order</button></a>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
